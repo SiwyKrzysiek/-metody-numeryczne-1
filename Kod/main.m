@@ -4,9 +4,11 @@ clf;
 clear;
 
 N = [5 9 11 15];
-x = linspace(-1, 1, 1111);
 from = -1;
 to = 1;
+x = linspace(from, to, 1111);
+analiticResults = arrayfun(@f, x);
+
 
 hold on;
 for n = N
@@ -14,6 +16,11 @@ for n = N
     y = LagrangeInterpolation(x, nodes);
     
     plot(x, y, 'DisplayName', n + " wezlow interoplacji")
+    
+    absoluteErrors = abs(y - analiticResults);
+    n
+    maxError = max(absoluteErrors)
+    meanError = mean(absoluteErrors)
 end
 
 grid on;
@@ -22,7 +29,7 @@ xlabel("x");
 ylabel("f(x)");
 legend();
 
-
+%% Czebyszew interpolation with evenly spaced nodes
 %% Interpolacja Lagrange'a z rozk³adem równomiernym 
 
 display = 1111;

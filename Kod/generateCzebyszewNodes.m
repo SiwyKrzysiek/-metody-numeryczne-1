@@ -1,4 +1,4 @@
-function nodes = czebyszewNodes(f, numberOfPoints)
+function nodes = generateCzebyszewNodes(f, numberOfPoints)
 %CZEBYSZEWNODES Generate Czebyszew interpolation nodes in range <-1, 1>
 nodes = zeros(2, numberOfPoints);
 
