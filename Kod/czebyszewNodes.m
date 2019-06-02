@@ -1,6 +1,6 @@
-function [x,y] = czebyszewNodes(f, numberOfPoints)
-%CZEBYSZEWNODES Summary of this function goes here
-%   Detailed explanation goes here
+function nodes = czebyszewNodes(f, numberOfPoints)
+%CZEBYSZEWNODES Generate Czebyszew interpolation nodes in range <-1, 1>
+nodes = zeros(2, numberOfPoints);
 
 x = zeros(1, numberOfPoints);
 for k = 1:numberOfPoints
@@ -12,5 +12,7 @@ for i = 1:numberOfPoints
    y(i) = f(x(i));
 end
 
+nodes(1, :) = x;
+nodes(2, :) = y;
 end
 

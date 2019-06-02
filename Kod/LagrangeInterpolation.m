@@ -1,13 +1,21 @@
-function interpolatingPolinomial = LagrangeInterpolation(X ,Y)
-%LAGRANGEINTERPOLATION Summary of this function goes here
-%   Detailed explanation goes here
-sum = zeros(1, length(X));
+function y = LagrangeInterpolation(x, interpolationNodes)
+%LAGRANGEINTERPOLATION Generate points values using Lagrangea Interpolation
 
-for i = 1:length(X)
-   sum = sum +  LagrangeaPolinomial(i, X) * Y(i);
+numberOfNodes = size(interpolationNodes, 2);
+L = ones(numberOfNodes, length(x));
+
+for i = 1:numberOfNodes
+   for j = 1:numberOfNodes
+       if (i ~= j)
+          L(i, :) = L(i, :).*((x - interpolationNodes(1, j)) / (interpolationNodes(1, i) - interpolationNodes(1, j)));
+       end
+   end
 end
 
-interpolatingPolinomial = sum;
+y = zeros(1, length(x));
+for i = 1:numberOfNodes
+   y = y + interpolationNodes(2, i) * L(i, :);
+end
 
 end
 

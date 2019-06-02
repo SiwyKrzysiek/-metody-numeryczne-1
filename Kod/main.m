@@ -1,3 +1,28 @@
+%% Lagrange interpolation with evenly spaced nodes
+clc;
+clf;
+clear;
+
+N = [5 9 11 15];
+x = linspace(-1, 1, 1111);
+from = -1;
+to = 1;
+
+hold on;
+for n = N
+    nodes = generateEvenlySpacedNodes(@f, n, from, to);
+    y = LagrangeInterpolation(x, nodes);
+    
+    plot(x, y, 'DisplayName', n + " wezlow interoplacji")
+end
+
+grid on;
+title("Interpolacja metoda Lagrangea z rownoodleglymi wezlami");
+xlabel("x");
+ylabel("f(x)");
+legend();
+
+
 %% Interpolacja Lagrange'a z rozk³adem równomiernym 
 
 display = 1111;
