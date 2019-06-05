@@ -60,7 +60,7 @@ xlabel("x");
 ylabel("f(x)");
 legend();
 
-%% Lagrange interpolation with evenly spaced nodes
+%% Lagrange interpolation with Czebyszew nodes
 clc;
 clf;
 clear;
