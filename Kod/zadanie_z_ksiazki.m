@@ -14,3 +14,9 @@ x = transformuj(t)
 punkty = linspace(0, 2*pi, 1000);
 
 y = interpolacjaTygonometryczna(x, f, punkty);
+
+hold on;
+grid on;
+plot(x, f, "o");
+
+plot(punkty, y, "-");
