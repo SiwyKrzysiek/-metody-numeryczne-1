@@ -13,9 +13,10 @@ x = transformuj(t)
 
 % punkty = linspace(0, 2*pi, 1000);
 a = -1;
-b = 4
+b = 4;
 punkty = linspace(a, b, 1000);
-punkty = transformuj(punkty);
+%punkty = transformuj(punkty);
+punkty = transformujPunkty(punkty, length(t));
 
 y = interpolacjaTygonometryczna(x, f, punkty);
 
